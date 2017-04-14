@@ -1,0 +1,19 @@
+#clubLogo {
+	width: 15%;
+}
+
+#kidsBackground {
+	background-image: url('../pictures/players.jpg');
+	background-size: cover;
+}
+
+.jumbotron {
+	height: 230px;
+}
+
+.navbar-default {
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
+
+
