@@ -1,3 +1,21 @@
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
 #clubLogo {
 	width: 15%;
 	position: relative;
@@ -27,8 +45,26 @@
 	top: -20px;
 }
 
+#mainContent {
+	width: 750px;
+	margin: 0 auto;
+}
 
+#pageContainer {
+	width: 1024px;
+	margin: 0 auto;
+}
 
+#leftPanel {
+	float: left;
+	background-color: red;
+	width: 130px;
+}
+
+#rightPanel {
+	float: right;
+	background-color: blue;
+}
 
 
 
@@ -55,4 +91,8 @@
 	top: -70px;
    }
 
+}
+
+@media only screen and (min-width: 1015) {
+	/*NavBar height*/
 }

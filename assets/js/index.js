@@ -1,9 +1,9 @@
 console.log("Goooooool!!");
 
-function hidePanelAnswer(){
+/*function hidePanelAnswer(){
     $('#clubLogo').hide();
 }
 
 $('#clubLogo').on('click', function(){
 	hidePanelAnswer();
-})
+})*/
