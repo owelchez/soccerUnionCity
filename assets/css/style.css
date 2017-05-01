@@ -11,8 +11,9 @@ li {
 	display: list-item;
 }
 
-.btn-primary {
-	margin: 3px;
+nav {
+	height: 50px;
+	margin-bottom: 70px;
 }
 
 #clubLogo {
@@ -24,12 +25,9 @@ li {
 }
 
 #kidsBackground {
-	background-image: url('../pictures/players.jpg');
-	background-size: cover;
-}
-
-.jumbotron {
-	height: 230px;
+	width: 80%;
+	border-radius: 5px;
+	margin: 10px;
 }
 
 .nav {
@@ -39,13 +37,13 @@ li {
 }
 
 #topHeader {
+	font-size: 2vw;
 	font-weight: bolder;
 	position: relative;
-	left: 25%;
-	top: -20px;
 }
 
 #mainContent {
+	float: left;
 	width: 700px;
 	margin: 0 auto;
 }
@@ -53,6 +51,7 @@ li {
 #pageContainer {
 	width: 1024px;
 	margin: 0 auto;
+	background-color: white;
 }
 
 #leftPanel {
@@ -104,4 +103,8 @@ li {
 
 @media only screen and (min-width: 1015) {
 	/*NavBar height*/
+	nav {
+		height: 50px;
+		margin-bottom: 70px;
+	}
 }
