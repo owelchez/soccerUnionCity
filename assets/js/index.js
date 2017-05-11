@@ -7,3 +7,4 @@ console.log("Goooooool!!");
 $('#clubLogo').on('click', function(){
 	hidePanelAnswer();
 })*/
+
