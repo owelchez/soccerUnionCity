@@ -139,7 +139,7 @@ li {
 	}
 }
 
-@media only screen and (max-width: 765px) {
+@media only screen and (max-width: 749px) {
 	/*Remove top links in nav and create button for menu*/
 
 	#topLinks {
@@ -156,4 +156,19 @@ li {
 		position: inherit;
 		margin-top: 50px;
 	}
+
+
+
 }
+
+@media only screen and () {
+
+
+
+
+
+}
+
+
+
+
