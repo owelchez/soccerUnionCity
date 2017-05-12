@@ -139,15 +139,6 @@ li {
 	}
 }
 
-@media only screen and (max-width: 749px) {
-	/*Remove top links in nav and create button for menu*/
-
-	#topLinks {
-		display: none;
-	}
-
-}
-
 @media only screen and (max-width: 285px) {
 
 	#titleHeader {
@@ -161,9 +152,19 @@ li {
 
 }
 
-@media only screen and () {
+@media only screen and (max-width: 780px) {
+	/*Remove top links in nav and create button for menu*/
+	#topLinks {
+		display: none;
+	}
 
+}
 
+@media only screen and (max-width: 779) {
+
+	#dropMenu {
+		display: none;
+	}
 
 
 
