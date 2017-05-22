@@ -48,6 +48,7 @@ li {
 	height: 72px;
 	background:rgba(255,255,255,.5);
 	border-color: #E7E782;
+	margin-bottom: 0px;
 }
 
 #clubLogo {
@@ -95,44 +96,17 @@ li {
 	background-color: #fdfdfd;
 }
 
+#dropMenu {
+	clear: both;
+	width: 100%;
+	margin-bottom: 15px;
+	display: none;
+}
+
 /********************Media Queries Only********************/
 
-@media only screen and (max-width: 700px) {
 
-   #topHeader { 
-   	font-size: 4.5vw;
-   	font-weight: bolder;
-   }
-
-   #titleHeader {
-   	font-size: 12px;
-   	margin-top: -15px;
-   }
-
-   #clubLogo {
-   	margin-right: 5px;
-   }
-}
-
-@media only screen and (min-width: 701px) {
-
-   #topHeader { 
-   	font-size: 3vw;
-   	font-weight: bolder;
-   	position: relative;
-	left: 25%;
-	top: -70px;
-   }
-}
-
-@media only screen and (min-width: 1015) {
-
-	nav {
-		margin-bottom: 70px;
-	}
-}
-
-@media only screen and (max-width: 1106px ) {
+@media only screen and (max-width: 1130px ) {
 	
 	#titleHeader {
 		font-size: 15px;
@@ -158,16 +132,9 @@ li {
 		display: none;
 	}
 
-}
-
-@media only screen and (max-width: 779) {
-
 	#dropMenu {
-		display: none;
+		display: inline;
 	}
-
-
-
 }
 
 
