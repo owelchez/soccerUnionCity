@@ -42,25 +42,28 @@ select {
 	font-size: 10px;
 	float: right;
 	text-align: center;
-	margin-top: -29px;
-	margin-right: 20px;
+	margin-right: 5px;
+	margin-top: 5px;
 }
 
 #titleHeader {
+	float: left;
 	position: relative;
 	font-size: 25px;
 	font-weight: bolder;
-	padding-top: 5px;
+	margin-top: 25px;
 }
 
-.navbar {
-	height: 72px;
+.navbar-default {
+	height: 70px;
 	background:rgba(255,255,255,.5);
+	border-width: 1px;
 	border-color: #E7E782;
-	margin-bottom: 0px;
+	width: 100%;
 }
 
 #clubLogo {
+	float: left;
 	position: relative;
 	border-radius: 70px;
 	width: 50px;
@@ -135,12 +138,9 @@ select {
 		position: inherit;
 		margin-top: 50px;
 	}
-
-
-
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 920px) {
 	/*Remove top links in nav and create button for menu*/
 	#topLinks {
 		display: none;
