@@ -18,6 +18,12 @@ function buttonStyleHide() {
 
 
 
-
+twttr.widgets.createTimeline(
+  {
+    sourceType: "profile",
+    screenName: "UnionCitySC"
+  },
+  document.getElementById("twitterContainer")
+);
 
 
