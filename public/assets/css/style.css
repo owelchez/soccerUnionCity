@@ -73,9 +73,10 @@ select {
 }
 
 #kidsBackground {
-	width: 80%;
+	width: 65%;
 	border-radius: 5px;
-	margin: 10px;
+	position: relative;
+	margin: 10px 20px 10px 20px;
 }
 
 #mainContent {
@@ -92,7 +93,8 @@ select {
 
 #leftPanel {
 	float: left;
-	width: 160px;
+	width: 200px;
+	height: 300px;
     display: block;
     font-family: 'News Cycle';
     font-size: 9pt;
@@ -101,12 +103,14 @@ select {
     display: table-cell;
     vertical-align: top;
     box-sizing: border-box;
-    background-color: #CEDDEE;
+    background:rgba(255,255,255,.5);
 }
 
 #rightPanel {
+	width: 200px;
+	height: 300px;
 	float: right;
-	background-color: #fdfdfd;
+	background:rgba(255,255,255,.5);
 }
 
 #dropMenu {
@@ -115,6 +119,15 @@ select {
 	margin-bottom: 15px;
 	margin-left: 2px;
 	display: none;
+}
+
+#tempDiv {
+	width: 250px;
+	height: 300px;
+}
+
+#rowHeight {
+	height: 20px;
 }
 
 /********************Media Queries Only********************/
