@@ -39,8 +39,21 @@ select {
 
 }
 
+.container {
+	width: 1024px;
+	margin: 0 auto;
+}
+
 .fb-page {
 	border-radius: 5px;
+}
+
+.navbar-default {
+	height: 70px;
+	background:rgba(255,255,255,.5);
+	border-width: 1px;
+	border-color: #E7E782;
+	width: 100%;
 }
 
 #topLinks {
@@ -59,14 +72,6 @@ select {
 	margin-top: 25px;
 }
 
-.navbar-default {
-	height: 70px;
-	background:rgba(255,255,255,.5);
-	border-width: 1px;
-	border-color: #E7E782;
-	width: 100%;
-}
-
 #clubLogo {
 	float: left;
 	position: relative;
@@ -77,22 +82,13 @@ select {
 }
 
 #kidsBackground {
-	width: 65%;
+	width: 500px;
 	border-radius: 5px;
-	position: relative;
-	margin: 10px 20px 10px 20px;
+	margin-left: 62px;
 }
 
 #mainContent {
-	float: left;
-	width: 700px;
-	margin: 0 auto;
-}
-
-#pageContainer {
-	width: 1024px;
-	margin: 0 auto;
-	background-color: white;
+	
 }
 
 #leftPanel {
@@ -114,7 +110,7 @@ select {
 }
 
 #rowHeight {
-	height: 20px;
+	height: 30px;
 }
 
 /********************Media Queries Only********************/
