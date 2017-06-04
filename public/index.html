@@ -27,21 +27,21 @@
 
   				<div id="topLinks">
       				<ul>
-						<li><a href="/">HOME</a></li>
+						<li><a href="/index.html">HOME</a></li>
 
-						<li><a href="#">RECREATION 2017</a></li>
+						<li><a href="./recreation.html">RECREATION 2017</a></li>
 
-						<li><a href="#">ADULT SOCCER</a></li>
+						<li><a href="./adultSoccer.html">ADULT SOCCER</a></li>
 
-						<li><a href="#">PICTURES</a></li>
+						<li><a href="./pictures.html">PICTURES</a></li>
 
-						<li><a href="#">TRAVELING COACHES</a></li>
+						<li><a href="./travelingCoaches.html">TRAVELING COACHES</a></li>
 
-						<li><a href="#">SOCCER REC</a></li>
+						<li><a href="./soccerRec.html">SOCCER REC</a></li>
 
-						<li><a href="#">CONTACT</a></li>
+						<li><a href="./contact.html">CONTACT</a></li>
 
-						<li><a href="#">ABOUT</a></li>
+						<li><a href="./about.html">ABOUT</a></li>
 					</ul>
       			</div>
       			
@@ -49,42 +49,67 @@
 
 	<div>
 	  		<select id="dropMenu">
-	  			<option><a href="/">HOME</a></option>
-				<option><a href="#">RECREATION 2017</a></option>
-				<option><a href="#">ADULT SOCCER</a></option>
-				<option><a href="#">PICTURES</a></option>
-				<option><a href="#">TRAVELING COACHES</a></option>
-				<option><a href="#">SOCCER REC</a></option>
-				<option><a href="#">CONTACT</a></option>
-				<option><a href="#">ABOUT</a></option>
+	  			<option><a href="/index.html">HOME</a></option>
+				<option><a href="./recreation.html">RECREATION 2017</a></option>
+				<option><a href="./adultSoccer.html">ADULT SOCCER</a></option>
+				<option><a href="./pictures.html">PICTURES</a></option>
+				<option><a href="./travelingCoaches.html">TRAVELING COACHES</a></option>
+				<option><a href="./soccerRec.html">SOCCER REC</a></option>
+				<option><a href="./contact.html">CONTACT</a></option>
+				<option><a href="./about.html">ABOUT</a></option>
 			</select>
 	</div>
 
-	<div class="row" id="rowHeight"></div>
+	<div class="row" id="rowHeight">
+		<p>I want a weather widget here</p>
+	</div>
 
 				
 
-<div class="container">
+	<div class="container">
 
-		<div id="leftPanel">
-			<div id="fb-root">
-				<div class="fb-page" data-href="https://www.facebook.com/UnionCitySoccer/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/UnionCitySoccer/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/UnionCitySoccer/">Union City Soccer</a></blockquote></div>
+			<div id="leftPanel">
+				<div id="fb-root">
+					<div class="fb-page" data-href="https://www.facebook.com/UnionCitySoccer/" 
+						data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" 
+						data-hide-cover="false" data-show-facepile="true">
+						<blockquote cite="https://www.facebook.com/UnionCitySoccer/" class="fb-xfbml-parse-ignore">
+							<a href="https://www.facebook.com/UnionCitySoccer/">Union City Soccer</a>
+						</blockquote>
+					</div>
+				</div>
+				
 			</div>
-			
+
+
+				<img id="kidsBackground" src="./assets/pictures/players.jpg">
+
+		
+
+			<div id="rightPanel">
+				<a class="twitter-timeline" data-width="200" data-height="500" 
+					data-theme="dark" href="https://twitter.com/UnionCitySC">Tweets by UnionCitySC
+				</a>
+					<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+			</div>
+
+		
+		
+	</div>
+
+	<div id="footer">
+		<!-- Credits to Matthew James Taylor -->
+		<div id="copyright">
+			<p>&#169 2017 UNION CITY SOCCER CLUB</p>
 		</div>
 
-
-			<img id="kidsBackground" src="./assets/pictures/players.jpg">
-
-	
-
-		<div id="rightPanel">
-					<a class="twitter-timeline" data-width="200" data-height="500" data-theme="dark" href="https://twitter.com/UnionCitySC">Tweets by UnionCitySC</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<div id="social">
+			<p>FOLLOW US ON</p>
+			<a href="https://www.facebook.com/UnionCitySoccer/" target="_blank"><img class="socialMedia" src="./assets/pictures/fb.png" alt="Facebook"></a>
+			<a href="https://twitter.com/UnionCitySC" target="_blank"><img class="socialMedia" src="./assets/pictures/tw.png" alt="Twitter"></a>
 		</div>
+	</div>
 
-	
-	
-</div>
 <!-- These are my jquery, bootstrap and index js files -->
 	<script src="./assets/jquery/jquery-3.2.1.min.js"></script>
 	<script src="./assets/bootstrap/bootstrap.min.js"></script>
