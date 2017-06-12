@@ -44,6 +44,18 @@ nav {
 	overflow: hidden;
 }
 
+#galleryPics {
+	background: #848c9c;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	overflow: hidden;
+}
+
+#imgSection {
+	width: 100px;
+	height: 100px;
+}
+
 .container {
 	width: 1024px;
 	margin: 0 auto;
