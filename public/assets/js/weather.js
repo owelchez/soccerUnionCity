@@ -6,7 +6,7 @@ var weatherURL = "http://api.wunderground.com/api/" + weatherAPIKey + "/forecast
 
 $.ajax({url: weatherURL, method: "GET"})
 	.done(function(weatherResponse){
-		console.log(weatherResponse);
+		//console.log(weatherResponse);
 })
 
 
