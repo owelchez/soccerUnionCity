@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var mysql = require('mysql');
 
 var PORT = 3000;
 var app = express();
@@ -37,6 +38,23 @@ var users = [{
 	profilePic: ''
 }];
 
+var connection = mysql.createConnection({
+	host: 'localhost',
+	user: 'root',
+	password: '',
+	database: 'soccerUser_db'
+});
+
+connection.connect(function (err) {
+	if (err) {
+		console.log('Error connecting: ' + err.stack);
+		return;
+	} else {
+		console.log('Working fine!');
+	}
+});
+
+
 /**********************************************************/
 /**********************************************************/
 
@@ -50,50 +68,28 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/find/users', function(req, res){
-	res.json(users);
+app.get('/find/players', function(req, res){
+	connection.query('SELECT * FROM users', function (err, results){
+		if (err) {
+			throw err;
+		}
+		res.json(results);
+		//res.json(users);
+	})
 });
 
-app.get('/find/users/:index', function(req, res){
+app.get('/find/players/:index', function(req, res){
 	//index without question mark makes it mandatory
 	var userIndex = req.params.index;
-	console.log(userIndex);
-	if(users[userIndex] !== undefined) {
-		res.json(users[userIndex]);
-	} else {
-		res.status(404).json('User not found!');
-	}
-});
+	console.log('This is line 90 ' + userIndex);
 
-app.post('/find/users/', function(req, res){
-	var newUser = req.body;
-	if(typeof newUser === 'object') {
-		users.push(newUser);
-		res.status(201).json(newUser);
-	} else {
-		res.status(401).json('Please use valid object');
-	}
-})
-
-// Search for Specific User (or all users) - provides JSON
-/*app.get('/find/:users?', function (req, res) {
-	var chosen = req.params.users;
-	console.log(chosen);
-	if (chosen) {
-		console.log(chosen);
-
-		for (var i = 0; i < users.length; i++) {
-			if (chosen === users[i].routeName) {
-				res.json(users[i]);
-				return;
-			}
+	connection.query('SELECT * FROM users WHERE ?', { routeName: userIndex }, function (err, results){
+		if (err) {
+			throw err;
 		}
-
-		res.json(false);
-	} else {
-		res.json(users);
-	}
-});*/
+		res.json(results);
+	})
+});
 
 app.get('*', function (req, res) {
 	res.status(404).sendFile(path.join(__dirname, './public/404NotFound.html'));
