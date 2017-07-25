@@ -2,6 +2,9 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
+var methodOverride = require('method-override');
+var sequelize = require('sequelize');
+var fs = require('fs');
 
 var PORT = 3000;
 var app = express();
@@ -12,6 +15,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
+
+// This will override a POST request from my form to update players (Once I get it done ;p)
+app.use(methodOverride('_method'));
 
 
 			/*This is a sample for user's data*/
@@ -53,6 +59,8 @@ connection.connect(function (err) {
 		console.log('Working fine!');
 	}
 });
+
+//connection.connect();
 
 
 /**********************************************************/
