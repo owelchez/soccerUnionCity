@@ -47,7 +47,7 @@ var users = [{
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: '',
+	password: 'loco',
 	database: 'soccerUser_db'
 });
 

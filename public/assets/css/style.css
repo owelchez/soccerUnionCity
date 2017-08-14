@@ -48,6 +48,9 @@ section {
 	margin: 0 auto;
 }
 
+#loginBox {
+	margin: 0 auto;
+}
 
 #galleryPics img:hover { 
     border-color: #330033;
