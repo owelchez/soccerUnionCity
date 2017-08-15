@@ -49,7 +49,9 @@ section {
 }
 
 #loginBox {
-	margin: 0 auto;
+  position: fixed; /* or absolute */
+  top: 25%;
+  left: 40%;
 }
 
 #galleryPics img:hover { 

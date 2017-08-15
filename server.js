@@ -19,35 +19,10 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
 // This will override a POST request from my form to update players (Once I get it done ;p)
 app.use(methodOverride('_method'));
 
-
-			/*This is a sample for user's data*/
-var users = [{
-	routeName: 'orvin',
-	name: 'Orvin',
-	role: 'Coach',
-	age: 35,
-	phoneNumber: '3677530816',
-	profilePic: ''
-}, {
-	routeName: 'messi',
-	name: 'Messi',
-	role: 'Player',
-	age: 30,
-	phoneNumber: '4789234342',
-	profilePic: ''
-}, {
-	routeName: 'robben',
-	name: 'Robben',
-	role: 'Player',
-	age: 33,
-	phoneNumber: '5437998723',
-	profilePic: ''
-}];
-
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: 'loco',
+	password: null,
 	database: 'soccerUser_db'
 });
 
@@ -74,6 +49,10 @@ app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
  
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('/login', function (req, res) {
+  res.sendFile(path.join(__dirname, './public/login.html'));
 });
 
 app.get('/find/players', function(req, res){
