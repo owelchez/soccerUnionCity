@@ -22,7 +22,7 @@ app.use(methodOverride('_method'));
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: null,
+	password: "loco",
 	database: 'soccerUser_db'
 });
 
