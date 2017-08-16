@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var methodOverride = require('method-override');
 var sequelize = require('sequelize');
-var fs = require('fs');
+var models = require('./models');
 
 var PORT = 3000;
 var app = express();
@@ -22,8 +22,8 @@ app.use(methodOverride('_method'));
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: "loco",
-	database: 'soccerUser_db'
+	password: "",
+	database: 'soccerUserdb'
 });
 
 connection.connect(function (err) {
