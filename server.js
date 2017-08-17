@@ -6,8 +6,16 @@ var methodOverride = require('method-override');
 var sequelize = require('sequelize');
 var models = require('./models');
 
+var Admin = require('./models')["Admin"];
+Admin.sync();
+var Player = require('./models')["Player"];
+Player.sync();
+
 var PORT = 3000;
 var app = express();
+
+require("./public/routes/html-routes.js");
+require("./public/routes/api-routes.js");
 
 
 
@@ -22,8 +30,8 @@ app.use(methodOverride('_method'));
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: "",
-	database: 'soccerUserdb'
+	password: "loco",
+	database: 'socceruser_db'
 });
 
 connection.connect(function (err) {
@@ -46,23 +54,8 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist/css/'));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 
- 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
-
 app.get('/login', function (req, res) {
   res.sendFile(path.join(__dirname, './public/login.html'));
-});
-
-app.get('/find/players', function(req, res){
-	connection.query('SELECT * FROM users', function (err, results){
-		if (err) {
-			throw err;
-		}
-		res.json(results);
-		//res.json(users);
-	})
 });
 
 app.get('/find/players/:index', function(req, res){
