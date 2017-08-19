@@ -71,6 +71,28 @@ app.get('/find/players/:index', function(req, res){
 	})
 });
 
+
+app.post('/create/player', function(req, res){
+		var player = req.body;
+
+		var routeName = player.firstName.replace(/\s+/g, '').toLowerCase();
+
+		Player.create({
+			routeName: routeName,
+			firstName: player.firstName,
+			lastName: player.lastName,
+			pitchPosition: player.pitchPosition,
+			dob: player.dob,
+			address: player.address,
+			email: player.email,
+			phone: player.phone,
+			emergencyPhone: player.emergencyPhone,
+			profilePicture: player.profilePicture,
+			currentTeam: player.currentTeam
+		});
+	})
+
+
 app.get('*', function (req, res) {
 	res.status(404).sendFile(path.join(__dirname, './public/404NotFound.html'));
 });
