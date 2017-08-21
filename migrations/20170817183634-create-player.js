@@ -29,10 +29,10 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      phone: {
+      phoneNumber: {
         type: Sequelize.STRING
       },
-      emergencyPhone: {
+      emergencyPhoneNumber: {
         type: Sequelize.STRING
       },
       profilePicture: {

@@ -27,24 +27,6 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
 // This will override a POST request from my form to update players (Once I get it done ;p)
 app.use(methodOverride('_method'));
 
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: "loco",
-	database: 'socceruser_db'
-});
-
-connection.connect(function (err) {
-	if (err) {
-		console.log('Error connecting: ' + err.stack);
-		return;
-	} else {
-		console.log('Working fine!');
-	}
-});
-
-//connection.connect();
-
 
 /**********************************************************/
 /**********************************************************/
@@ -85,8 +67,8 @@ app.post('/create/player', function(req, res){
 			dob: player.dob,
 			address: player.address,
 			email: player.email,
-			phone: player.phone,
-			emergencyPhone: player.emergencyPhone,
+			phoneNumber: player.phoneNumber,
+			emergencyPhoneNumber: player.emergencyPhoneNumber,
 			profilePicture: player.profilePicture,
 			currentTeam: player.currentTeam
 		});

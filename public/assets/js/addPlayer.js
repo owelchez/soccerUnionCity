@@ -4,16 +4,17 @@ $('#addPlayer').on("click", function(){
 	{
 		firstName: $("#firstName").val().trim(),
 		lastName: $("#lastName").val().trim(), 
-		position: $("#position").val().trim(),
+		pitchPosition: $("#position").val().trim(),
 		dob: $("#dob").val().trim(),
 		address: $("#address").val().trim(),
-		emailAddress: $("#email").val().trim(),
+		email: $("#email").val().trim(),
 		phoneNumber: $("#phoneNumber").val().trim(),
 		emergencyPhoneNumber: $("#ePhoneNumber").val().trim(),
 		profilePicture: $("#profilePicture").val().trim(),
 		currentTeam: $("#currentTeam").val().trim()
 	};
 
+	 console.log("This is player " + newPlayer);
 	 
 	var currentURL = window.location.origin;
 
