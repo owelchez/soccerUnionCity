@@ -8,8 +8,8 @@ module.exports = function(sequelize, DataTypes) {
     dob: DataTypes.DATE,
     address: DataTypes.STRING,
     email: DataTypes.STRING,
-    phone: DataTypes.STRING,
-    emergencyPhone: DataTypes.STRING,
+    phoneNumber: DataTypes.STRING,
+    emergencyPhoneNumber: DataTypes.STRING,
     profilePicture: DataTypes.STRING,
     currentTeam: DataTypes.STRING
   }, {
