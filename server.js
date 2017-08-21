@@ -43,7 +43,6 @@ app.get('/login', function (req, res) {
 app.get('/find/players/:index', function(req, res){
 	//index without question mark makes it mandatory
 	var userIndex = req.params.index;
-	console.log('This is line 90 ' + userIndex);
 
 	connection.query('SELECT * FROM users WHERE ?', { routeName: userIndex }, function (err, results){
 		if (err) {
@@ -53,9 +52,27 @@ app.get('/find/players/:index', function(req, res){
 	})
 });
 
+app.get('/find/:players?', function(req, res){
+	if(req.params.players) {
+		Player.findOne({
+			where: {
+				routeName: req.params.players
+			}
+		}).then(function(result){
+			return res.json(result);
+		})
+	} else {
+		Player.findAll({})
+			.then(function(result){
+				return res.json(result);
+			})
+	}
+});
+
 
 app.post('/create/player', function(req, res){
 		var player = req.body;
+		console.log(player);
 
 		var routeName = player.firstName.replace(/\s+/g, '').toLowerCase();
 

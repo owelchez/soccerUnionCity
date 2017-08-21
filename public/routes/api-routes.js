@@ -2,7 +2,7 @@ var models = require('./../../models');
 
 module.exports = function(page) {
 
-app.get('/find/:players', function(req, res){
+app.get('/find/:players?', function(req, res){
 	if(req.params.players) {
 		Player.findOne({
 			where: {
