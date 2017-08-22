@@ -48,6 +48,11 @@ section {
 	margin: 0 auto;
 }
 
+table, th, td {
+	text-align: center;
+    border: 1px solid black;
+}
+
 #loginBox {
 	text-align: center;
 	border-radius: 5px;

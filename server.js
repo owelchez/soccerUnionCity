@@ -6,6 +6,7 @@ var methodOverride = require('method-override');
 var sequelize = require('sequelize');
 var models = require('./models');
 
+// This will synchronize Admin and Player tables
 var Admin = require('./models')["Admin"];
 Admin.sync();
 var Player = require('./models')["Player"];
@@ -89,7 +90,7 @@ app.post('/create/player', function(req, res){
 			profilePicture: player.profilePicture,
 			currentTeam: player.currentTeam
 		});
-	})
+})
 
 
 app.get('*', function (req, res) {
