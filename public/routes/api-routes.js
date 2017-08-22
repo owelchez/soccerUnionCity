@@ -19,10 +19,11 @@ app.get('/find/:players?', function(req, res){
 	}
 });
 
-	app.post('/create/player', function(req, res){
+app.post('/create/player', function(req, res){
 		var player = req.body;
+		console.log(player);
 
-		var routeName = player.name.replace(/\s+/g, '').toLowerCase();
+		var routeName = player.firstName.replace(/\s+/g, '').toLowerCase();
 
 		Player.create({
 			routeName: routeName,
@@ -32,11 +33,11 @@ app.get('/find/:players?', function(req, res){
 			dob: player.dob,
 			address: player.address,
 			email: player.email,
-			phone: player.phone,
-			emergencyPhone: player.emergencyPhone,
+			phoneNumber: player.phoneNumber,
+			emergencyPhoneNumber: player.emergencyPhoneNumber,
 			profilePicture: player.profilePicture,
 			currentTeam: player.currentTeam
 		});
-	})
+})	
 
 }
