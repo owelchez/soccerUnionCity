@@ -1,4 +1,4 @@
-$('#findByName').on("click", function(){
+/*$('#findByName').on("click", function(){
 
 	
 	var currentURL = window.location.origin;
@@ -17,4 +17,4 @@ $('#findByName').on("click", function(){
 
 	return false;
 
-});	
+});	*/

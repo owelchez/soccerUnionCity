@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     pitchPosition: DataTypes.STRING,
-    dob: DataTypes.DATE,
+    dob: DataTypes.DATEONLY,
     address: DataTypes.STRING,
     email: DataTypes.STRING,
     phoneNumber: DataTypes.STRING,
