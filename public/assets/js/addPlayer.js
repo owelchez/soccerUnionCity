@@ -25,7 +25,6 @@ $('#addPlayer').on("click", function(){
 			 
 			console.log(data);
 			 
-			alert("Adding Player...")
 		})
 
 	 

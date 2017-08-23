@@ -41,16 +41,8 @@ app.get('/login', function (req, res) {
   res.sendFile(path.join(__dirname, './public/login.html'));
 });
 
-app.get('/find/players/:index', function(req, res){
-	//index without question mark makes it mandatory
-	var userIndex = req.params.index;
-
-	connection.query('SELECT * FROM users WHERE ?', { routeName: userIndex }, function (err, results){
-		if (err) {
-			throw err;
-		}
-		res.json(results);
-	})
+app.get('/findbyname', function (req, res) {
+  res.sendFile(path.join(__dirname, './public/findByName.html'));
 });
 
 app.get('/find/:players?', function(req, res){
@@ -69,7 +61,6 @@ app.get('/find/:players?', function(req, res){
 			})
 	}
 });
-
 
 app.post('/create/player', function(req, res){
 		var player = req.body;
