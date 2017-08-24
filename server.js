@@ -45,6 +45,10 @@ app.get('/findbyname', function (req, res) {
   res.sendFile(path.join(__dirname, './public/findByName.html'));
 });
 
+app.get('/addPlayer', function (req, res) {
+  res.sendFile(path.join(__dirname, './public/addPlayer.html'));
+});
+
 app.get('/find/:players?', function(req, res){
 	if(req.params.players) {
 		Player.findOne({
