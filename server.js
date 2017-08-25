@@ -51,7 +51,8 @@ app.get('/addPlayer', function (req, res) {
 
 app.get('/find/:players?', function(req, res){
 	if(req.params.players) {
-		Player.findOne({
+		// FindAll to find any possible repeated names
+		Player.findAll({
 			where: {
 				routeName: req.params.players
 			}

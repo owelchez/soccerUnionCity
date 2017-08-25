@@ -1,4 +1,4 @@
-var models = require('./../../models');
+/*var models = require('./../../models');
 
 module.exports = function(page) {
 
@@ -40,4 +40,4 @@ app.post('/create/player', function(req, res){
 		});
 })	
 
-}
+}*/
