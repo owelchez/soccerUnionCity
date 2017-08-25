@@ -1,14 +1,6 @@
-var row = $('<tr><td><span id="firstName"></span></td>' + 
-	'<td><span id="lastName"></span></td>' + 
-	'<td><span id="pitchPosition"></span></td>' + 
-	'<td><span id="dob"></span></td>' + 
-	'<td><span id="address"></span></td>' + 
-	'<td><span id="email"></span></td>' + 
-	'<td><span id="phoneNumber"></span></td>' + 
-	'<td><span id="emergencyPhoneNumber"></span></td>' + 
-	'<td><span id="currentTeam"></span></td>');
-
 $("#findByName").on('click', function(){
+
+	$("table tbody").empty();
 
 	var playerName = $("#name").val().trim();
 
@@ -17,20 +9,23 @@ $("#findByName").on('click', function(){
 	$.get( currentURL + "/find/" + playerName)
 		 
 		.done(function(data){
-			 
-			console.log(data);
 
-		$("#tableContainer").append(row);
-		$("#firstName").html(data.firstName);
-		$("#lastName").html(data.lastName);
-		$("#pitchPosition").html(data.pitchPosition);	
-		$("#dob").html(data.dob);
-		$("#address").html(data.address);
-		$("#email").html(data.email);
-		$("#phoneNumber").html(data.phoneNumber);
-		$("#emergencyPhoneNumber").html(data.emergencyPhoneNumber);
-		$("#profilePicture").html(data.profilePicture);
-		$("#currentTeam").html(data.currentTeam);	 
+			for(index = 0; index < data.length; index++){
+				row = $('<tr>' + 
+						'<td><span>' + data[index].firstName + '</span></td>' + 
+						'<td><span>' + data[index].lastName + '</span></td>' + 
+						'<td><span>' + data[index].pitchPosition + '</span></td>' + 
+						'<td><span>' + data[index].dob + '</span></td>' + 
+						'<td><span>' + data[index].address + '</span></td>' + 
+						'<td><span>' + data[index].email + '</span></td>' + 
+						'<td><span>' + data[index].phoneNumber + '</span></td>' + 
+						'<td><span>' + data[index].emergencyPhoneNumber + '</span></td>' + 
+						'<td><span>' + data[index].currentTeam + '</span>' + 
+						'</td>');
+			 
+			 $("table tbody").append(row);
+			}
+
 		})
 
 		$("#name").val("");
