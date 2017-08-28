@@ -12,6 +12,7 @@ $("#findByName").on('click', function(){
 
 			for(index = 0; index < data.length; index++){
 				row = $('<tr>' + 
+						'<td><span>' + (index + 1) + '</span></td>' + 
 						'<td><span>' + data[index].firstName + '</span></td>' + 
 						'<td><span>' + data[index].lastName + '</span></td>' + 
 						'<td><span>' + data[index].pitchPosition + '</span></td>' + 
@@ -35,7 +36,6 @@ $("#findByName").on('click', function(){
 })
 
 $('#searchName').keydown(function(event){
-	console.log(event);
 	if(event.keyCode == 13){
 		event.preventDefault();
 		$('#findByName').click();
