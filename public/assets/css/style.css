@@ -53,6 +53,43 @@ table, th, td {
     border: 1px solid black;
 }
 
+.container {
+	width: 1024px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.fb-page {
+	border-radius: 5px;
+}
+
+.socialMedia {
+	width: 40px;
+}
+
+.navbar-default {
+	height: 70px;
+	background:rgba(255,255,255,.5);
+	border-width: 1px;
+	border-color: #E7E782;
+	width: 100%;
+}
+
+.text-right {
+	margin-top: 5px;
+}
+
+#nameHeader {
+	float: left;
+	text-align: center;
+	margin: 10px 15px 10px 15px;
+}
+
+#formName {
+	float: left;
+	margin: 5px 10px 5px 10px;
+}
+
 #loginBox {
 	text-align: center;
 	border-radius: 5px;
@@ -81,28 +118,6 @@ table, th, td {
 	border: 5px solid #848c9c;
 	margin: 12px;
 	width: 290px;
-}
-
-.container {
-	width: 1024px;
-	margin: 0 auto;
-	overflow: hidden;
-}
-
-.fb-page {
-	border-radius: 5px;
-}
-
-.socialMedia {
-	width: 40px;
-}
-
-.navbar-default {
-	height: 70px;
-	background:rgba(255,255,255,.5);
-	border-width: 1px;
-	border-color: #E7E782;
-	width: 100%;
 }
 
 #footer {
