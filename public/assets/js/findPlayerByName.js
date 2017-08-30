@@ -22,6 +22,7 @@ $("#findByName").on('click', function(){
 						'<td><span>' + data[index].phoneNumber + '</span></td>' + 
 						'<td><span>' + data[index].emergencyPhoneNumber + '</span></td>' + 
 						'<td><span>' + data[index].currentTeam + '</span>' + 
+						'<td><input id="radioButton" name="radio" type="radio"></td>' +  
 						'</td>');
 			 
 			 $("table tbody").append(row);
