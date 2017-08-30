@@ -57,7 +57,12 @@ app.get('/find/:players?', function(req, res){
 				routeName: req.params.players
 			}
 		}).then(function(result){
+			if(result.length < 1) {
+				return res.status(404).send(result);
+			}
+
 			return res.json(result);
+		
 		})
 	} else {
 		Player.findAll({})

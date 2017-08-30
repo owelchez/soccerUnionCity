@@ -26,11 +26,15 @@ $("#findByName").on('click', function(){
 						'</td>');
 			 
 			 $("table tbody").append(row);
+
+			 console.log("This is data " + data);
+
+			 /*$('#errorMessage').append();*/
 			}
 
 		})
 
-		$("#name").val("");
+		$("#searchName").val("");
 		playerName = "";
 
 	return false;
