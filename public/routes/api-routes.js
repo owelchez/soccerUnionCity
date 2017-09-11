@@ -1,15 +1,40 @@
-/*var models = require('./../../models');
+var express = require('express');
+var router = express.Router();
+var path = require('path');
+var app = express();
+var Player = require('../../models/')["Player"];
+var Admin = require('../../models/')["Admin"];
 
-module.exports = function(page) {
+router.get('/', function(req, res){
+		res.redirect('/');
+});
 
-app.get('/find/:players?', function(req, res){
+router.get('/login', function (req, res) {
+  res.sendFile(path.join(__dirname, '../login.html'));
+});
+
+router.get('/findbyname', function (req, res) {
+  res.sendFile(path.join(__dirname, '../findByName.html'));
+});
+
+router.get('/addPlayer', function (req, res) {
+  res.sendFile(path.join(__dirname, '../addPlayer.html'));
+});
+
+router.get('/find/:players?', function(req, res){
 	if(req.params.players) {
-		Player.findOne({
+		// FindAll to find any possible repeated names
+		Player.findAll({
 			where: {
 				routeName: req.params.players
 			}
 		}).then(function(result){
+			if(result.length < 1) {
+				return res.status(404).send(result);
+			}
+
 			return res.json(result);
+		
 		})
 	} else {
 		Player.findAll({})
@@ -19,7 +44,7 @@ app.get('/find/:players?', function(req, res){
 	}
 });
 
-app.post('/create/player', function(req, res){
+router.post('/create/player', function(req, res){
 		var player = req.body;
 		console.log(player);
 
@@ -38,6 +63,10 @@ app.post('/create/player', function(req, res){
 			profilePicture: player.profilePicture,
 			currentTeam: player.currentTeam
 		});
-})	
+})
 
-}*/
+router.get('*', function (req, res) {
+	res.status(404).sendFile(path.join(__dirname, '../404NotFound.html'));
+});
+
+module.exports = router;
