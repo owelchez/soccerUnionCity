@@ -30,11 +30,10 @@ router.get('/find/:players?', function(req, res){
 			}
 		}).then(function(result){
 			if(result.length < 1) {
-				return res.status(404).send(result);
+				res.status(404).send(result);
+			} else {
+				res.json(result);
 			}
-
-			return res.json(result);
-		
 		})
 	} else {
 		Player.findAll({})

@@ -1,6 +1,7 @@
 $("#findByName").on('click', function(){
 
 	$("table tbody").empty();
+	$("#errorMessage").html("");
 
 	var playerName = $("#searchName").val().trim();
 
@@ -9,7 +10,6 @@ $("#findByName").on('click', function(){
 	$.get( currentURL + "/find/" + playerName)
 		 
 		.done(function(data){
-
 			for(index = 0; index < data.length; index++){
 				row = $('<tr>' + 
 						'<td><span>' + (index + 1) + '</span></td>' + 
@@ -22,16 +22,15 @@ $("#findByName").on('click', function(){
 						'<td><span>' + data[index].phoneNumber + '</span></td>' + 
 						'<td><span>' + data[index].emergencyPhoneNumber + '</span></td>' + 
 						'<td><span>' + data[index].currentTeam + '</span>' + 
-						'<td><input id="radioButton" name="radio" type="radio"></td>' +  
+						'<td><span>Edit</span></td>' +  
 						'</td>');
 			 
-			 $("table tbody").append(row);
+			$("table tbody").append(row);
 
-			 console.log("This is data " + data);
-
-			 /*$('#errorMessage').append();*/
 			}
 
+		}).fail(function() {
+			$('#errorMessage').append('<p>Player not found!</p>');
 		})
 
 		$("#searchName").val("");
