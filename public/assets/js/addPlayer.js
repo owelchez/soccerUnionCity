@@ -23,10 +23,9 @@ $('#addPlayer').on("click", function(){
 		 
 		.done(function(data){
 			 
-			console.log(data);
+			console.log("Player created!");
 			 
 		})
-
 	 
 	$("#firstName").val("");
 	$("#lastName").val("");

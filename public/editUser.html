@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Union City Soccer Club</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+	<link rel="icon" type="image/png" href="../favicon.png">
+
+<style type="text/css">
+	
+.container {
+	width: 1024px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+<button><a href="/findByName.html">Find Player</a></button>
+
+<div class="container">
+	<br>
+	<h1>Update Player</h1>
+	<br>
+	<br>
+	<br>
+	
+<h3>Player Number <span id="playerId"></span></h3>
+
+
+<div class="panel-body">
+	<form action="/update/player" method="POST" role="form">
+		<br>
+		<dl class="form-group">
+			<div>
+				<dt>
+					<label for="namePlayer">First Name</label>
+				</dt>
+				<dd>
+					<input class="form-control" id="playerFirstName" name="" size="30" type="text" value="">
+				</dd>
+			</div>
+		</dl>
+		<br>	
+		<dl class="form-group">
+			<div>
+				<dt>
+					<label for="namePlayer">Last Name</label>
+				</dt>
+				<dd>
+					<input class="form-control" id="playerLastName" name="" size="30" type="text" value="">
+				</dd>
+			</div>
+		</dl>
+		<br>
+		<dl class="form-group">
+			<div>
+				<dt>
+					<label for="namePlayer">Position</label>
+				</dt>
+				<dd>
+					<input class="form-control" id="playerPosition" name="" size="30" type="text" value="">
+				</dd>
+			</div>
+		</dl>
+		<br>
+		<dl class="form-group">
+			<div>
+				<dt>
+					<label for="namePlayer">Date of Birth</label>
+				</dt>
+				<dd>
+					<input class="form-control" id="dob" name="" size="30" type="text" value="">
+				</dd>
+			</div>
+		</dl>
+		<br>
+		<dl class="form-group">
+			<div>
+				<dt>
+					<label for="namePlayer">Address</label>
+				</dt>
+				<dd>
+					<input class="form-control" id="address" name="" size="30" type="text" value="">
+				</dd>
+			</div>
+		</dl>
+		<br>
+		<dl class="form-group">
+			<div>
+				<dt>
+					<label for="namePlayer">Email Address</label>
+				</dt>
+				<dd>
+					<input class="form-control" id="emailAddress" name="" size="30" type="text" value="">
+				</dd>
+			</div>
+		</dl>
+		<br>
+		<dl class="form-group">
+			<div>
+				<dt>
+					<label for="namePlayer">Phone Number</label>
+				</dt>
+				<dd>
+					<input class="form-control" id="phoneNumber" name="" size="30" type="text" value="">
+				</dd>
+			</div>
+		</dl>
+		<br>
+		<dl class="form-group">
+			<div>
+				<dt>
+					<label for="namePlayer">Emergency Phone Number</label>
+				</dt>
+				<dd>
+					<input class="form-control" id="ePhoneNumber" name="" size="30" type="text" value="">
+				</dd>
+			</div>
+		</dl>
+		<br>
+		<dl class="form-group">
+			<div>
+				<dt>
+					<label for="namePlayer">Profile Picture</label>
+				</dt>
+				<dd>
+					<input class="form-control" id="profilePicture" name="" size="30" type="text" value="">
+				</dd>
+			</div>
+		</dl>
+		<br>
+		<dl class="form-group">
+			<div>
+				<dt>
+					<label for="namePlayer">Current Team</label>
+				</dt>
+				<dd>
+					<input class="form-control" id="currentTeam" name="" size="30" type="text" value="">
+				</dd>
+			</div>
+		</dl>
+		<br>
+	</form>
+	<br>
+
+	<div class="text-right">
+		<button type="submit" class="btn btn-primary btn-md" id="addPlayer">
+			<span class="glyphicon glyphicon-fire"></span> Update Player
+		</button>
+	</div>
+</div>
+
+</div>
+
+</body>
+<!-- These are my jquery, bootstrap and index js files -->
+	<script src="./assets/jquery/jquery-3.2.1.min.js"></script>
+	<script src="./assets/bootstrap/bootstrap.min.js"></script>
+</html>
