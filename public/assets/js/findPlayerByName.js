@@ -1,3 +1,5 @@
+$("#updatePlayer").hide();
+
 $("#findByName").on('click', function(){
 
 	$("table tbody").empty();
@@ -22,7 +24,7 @@ $("#findByName").on('click', function(){
 						'<td><span>' + data[index].phoneNumber + '</span></td>' + 
 						'<td><span>' + data[index].emergencyPhoneNumber + '</span></td>' + 
 						'<td><span>' + data[index].currentTeam + '</span>' + 
-						'<td><span><a>Edit</a></span></td>' +  
+						'<td><span><a href="#">Edit</a></span></td>' +  
 						'</td>');
 			 
 			$("table tbody").append(row);
@@ -45,3 +47,4 @@ $('#searchName').keydown(function(event){
 		$('#findByName').click();
 	}
 });
+
