@@ -43,6 +43,14 @@ router.get('/find/:players?', function(req, res){
 	}
 });
 
+router.get('/find/id', function(req, res){
+	if(req.params.id) {
+		Player.findById(1).then(player => {
+			console.log(player);
+		})
+	}
+});
+
 router.post('/create/player', function(req, res){
 		var player = req.body;
 		console.log(player);
