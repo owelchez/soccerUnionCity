@@ -43,10 +43,10 @@ router.get('/find/:players?', function(req, res){
 	}
 });
 
-router.get('/find/id', function(req, res){
+router.get('/findById/:id?', function(req, res){
 	if(req.params.id) {
-		Player.findById(1).then(player => {
-			console.log(player);
+		Player.findById(req.params.id).then(player => {
+			res.json(player);
 		})
 	}
 });
