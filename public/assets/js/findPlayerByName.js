@@ -24,9 +24,9 @@ $("#findByName").on('click', function(){
 						'<td><span>' + data[index].phoneNumber + '</span></td>' + 
 						'<td><span>' + data[index].emergencyPhoneNumber + '</span></td>' + 
 						'<td><span>' + data[index].currentTeam + '</span>' + 
-						'<td><span><a href="#">Edit</a></span></td>' +  
+						'<td><span id="' + data[index].id + '"><a href="#">Edit</a></span></td>' +  
 						'</td>');
-			 
+
 			$("table tbody").append(row);
 
 			}
