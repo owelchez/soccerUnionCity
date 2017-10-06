@@ -1,4 +1,4 @@
-$("#updatePlayer").hide();
+hideUpdateForm();
 
 renderTableData();
 
@@ -38,6 +38,7 @@ function renderTableData(callback){
 
 			}).fail(function() {
 				$('#errorMessage').append('<p>Player not found!</p>');
+				hideUpdateForm();
 			})
 
 			$("#searchName").val("");
@@ -54,8 +55,12 @@ $('#searchName').keydown(function(event){
 		}
 });
 
-function renderUpdateForm(){
+function showUpdateForm(){
 	$("#updatePlayer").show();
+}
+
+function hideUpdateForm(){
+	$("#updatePlayer").hide();
 }
 
 function findId(){
@@ -63,8 +68,9 @@ function findId(){
 		var playerId = this.id;
 		console.log("This is playerId " + playerId);
 		$("table tbody").empty();
-		renderUpdateForm();
-		findByUserId(playerId);
+		showUpdateForm();
+		var playerObject = findByUserId(playerId);
+		console.log("This is playerObject " + playerObject);
 	})
 }
 
@@ -72,10 +78,8 @@ function findByUserId(id){
 	var currentURL = window.location.origin;
 	$.get( currentURL + "/findById/" + id)	 
 		.done(function(data){
-			console.log(data);
 			var newPlayerData = data;
-			console.log(newPlayerData);
-			return data;		
+			return newPlayerData;		
 	})
 }
 
