@@ -32,7 +32,8 @@ function renderTableData(callback){
 
 					$("table tbody").append(row);
 				}
-
+// After findId I will reference the id clicked on and querie that specific
+// entry id in the database to fill in all the information in the update form.
 				findId();
 
 			}).fail(function() {
@@ -46,38 +47,42 @@ function renderTableData(callback){
 	})
 }
 
-function renderUpdateForm(){
-	$("#updatePlayer").show();
-}
-
-	$('#searchName').keydown(function(event){
+$('#searchName').keydown(function(event){
 		if(event.keyCode == 13){
 			event.preventDefault();
 			$('#findByName').click();
 		}
-	});
+});
+
+function renderUpdateForm(){
+	$("#updatePlayer").show();
+}
 
 function findId(){
 	$(".userId").on('click', function(callback){
-		console.log(this.id);
+		var playerId = this.id;
+		console.log("This is playerId " + playerId);
 		$("table tbody").empty();
 		renderUpdateForm();
+		findByUserId(playerId);
 	})
-	
 }
 
-function findByUserId(){
+function findByUserId(id){
 	var currentURL = window.location.origin;
-
-	$.get( currentURL + "/find/" + 1)
-				 
+	$.get( currentURL + "/findById/" + id)	 
 		.done(function(data){
-			console.log(data);		
+			console.log(data);
+			var newPlayerData = data;
+			console.log(newPlayerData);
+			return data;		
 	})
 }
 
+function fillUpdateForm(playerObject){
+	$("#playerFirstName").val = playerObject.firstName;
+}
 
-findByUserId();
 
 
 
