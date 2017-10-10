@@ -63,23 +63,38 @@ function hideUpdateForm(){
 	$("#updatePlayer").hide();
 }
 
-function findId(){
+function findId(callback){
 	$(".userId").on('click', function(callback){
 		var playerId = this.id;
 		console.log("This is playerId " + playerId);
 		$("table tbody").empty();
 		showUpdateForm();
-		var playerObject = findByUserId(playerId);
-		console.log("This is playerObject " + playerObject);
+		findByUserId(playerId);
 	})
 }
 
-function findByUserId(id){
+function findByUserId(playerId){
 	var currentURL = window.location.origin;
-	$.get( currentURL + "/findById/" + id)	 
-		.done(function(data){
-			var newPlayerData = data;
-			return newPlayerData;		
+	$.ajax({ url:currentURL + "/findById/" + playerId, dataType: 'json', success: function(response){
+		console.log("This is response " + response.id);
+		$("#playerFirstName").val(capitalizeFirstLetter(response.firstName));
+		$("#playerLastName").val(capitalizeFirstLetter(response.lastName));
+		$("#playerPosition").val(capitalizeFirstLetter(response.pitchPosition));
+		$("#dob").val(response.dob);
+		$("#address").val(response.address);
+		$("#emailAddress").val(response.email);
+		$("#phoneNumber").val(response.phoneNumber);
+		$("#ePhoneNumber").val(response.emergencyPhoneNumber);
+		$("#profilePicture").val(response.profilePicture);
+		$("#currentTeam").val(capitalizeFirstLetter(response.currentTeam));
+	}, 
+	error: function(req, status, err){
+		console.log("Your querie failed ", status, err);
+	}	 
+		
+// I believe I have to write all the logic for updating player in database here.
+
+
 	})
 }
 
@@ -87,7 +102,9 @@ function fillUpdateForm(playerObject){
 	$("#playerFirstName").val = playerObject.firstName;
 }
 
-
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 
 
