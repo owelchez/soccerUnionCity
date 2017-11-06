@@ -49,6 +49,14 @@ router.get('/findById/:id?', function(req, res){
 			return res.json(player);
 		})
 	}
+	if(!req.params.id) {
+		res.status(404).send("Not found!");
+	}
+});
+
+router.put('/update/playerById', function(req, res){
+	var updatedPlayer = req.body;
+	console.log(updatedPlayer);
 });
 
 router.post('/create/player', function(req, res){
@@ -56,6 +64,7 @@ router.post('/create/player', function(req, res){
 		console.log(player);
 
 		var routeName = player.firstName.replace(/\s+/g, '').toLowerCase();
+		var routeName = player.lastName.replace(/\s+/g, '').toLowerCase();
 
 		Player.create({
 			routeName: routeName,
@@ -70,6 +79,10 @@ router.post('/create/player', function(req, res){
 			profilePicture: player.profilePicture,
 			currentTeam: player.currentTeam
 		});
+})
+
+router.post('/book/:id/update', function(req, res){
+	
 })
 
 router.get('*', function (req, res) {

@@ -36,6 +36,7 @@ app.use('/findbyname', routes);
 app.use('/addPlayer', routes);
 app.use('/find/:players?', routes);
 app.use('/create/player', routes);
+app.use('/update/player', routes);
 app.use('*', routes);
 
 app.listen(PORT);
