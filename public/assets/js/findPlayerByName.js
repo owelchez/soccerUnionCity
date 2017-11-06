@@ -4,7 +4,7 @@ renderTableData();
 
 function renderTableData(callback){
 	$("#findByName").on('click', function(){
-
+		hideUpdateForm();
 		$("table tbody").empty();
 		$("#errorMessage").html("");
 
@@ -12,7 +12,7 @@ function renderTableData(callback){
 
 		var currentURL = window.location.origin;
 
-		$.get( currentURL + "/find/" + playerName)
+		$.get( currentURL + "/find/" + playerName )
 			 
 			.done(function(data){
 				for(index = 0; index < data.length; index++){
@@ -60,6 +60,16 @@ function showUpdateForm(){
 }
 
 function hideUpdateForm(){
+	$("#playerFirstName").val("");
+	$("#playerLastName").val("");
+	$("#playerPosition").val("");
+	$("#updateDOB").val("");
+	$("#address").val("");
+	$("#emailAddress").val("");
+	$("#phoneNumber").val("");
+	$("#ePhoneNumber").val("");
+	$("#profilePicture").val("");
+	$("#currentTeam").val("");
 	$("#updatePlayer").hide();
 }
 
@@ -74,13 +84,13 @@ function findId(callback){
 }
 
 function findByUserId(playerId){
+	var playerQueried = {};
 	var currentURL = window.location.origin;
 	$.ajax({ url:currentURL + "/findById/" + playerId, dataType: 'json', success: function(response){
-		console.log("This is response " + response.id);
 		$("#playerFirstName").val(capitalizeFirstLetter(response.firstName));
 		$("#playerLastName").val(capitalizeFirstLetter(response.lastName));
 		$("#playerPosition").val(capitalizeFirstLetter(response.pitchPosition));
-		$("#dob").val(response.dob);
+		$("#updateDOB").val(response.dob);
 		$("#address").val(response.address);
 		$("#emailAddress").val(response.email);
 		$("#phoneNumber").val(response.phoneNumber);
@@ -90,10 +100,39 @@ function findByUserId(playerId){
 	}, 
 	error: function(req, status, err){
 		console.log("Your querie failed ", status, err);
-	}	 
+	}, complete: function(playerQueried){
+     // Handle the complete event
+     console.log(JSON.stringify(playerQueried));
+
+     $('#updateActualPlayer').on('click', function(){
+     	var updatedPlayer = {
+     	firstName: $("#playerFirstName").val().trim(),
+		lastName: $("#playerLastName").val().trim(), 
+		pitchPosition: $("#playerPosition").val().trim(),
+		dob: $("#updateDOB").val().trim(),
+		address: $("#address").val().trim(),
+		email: $("#emailAddress").val().trim(),
+		phoneNumber: $("#phoneNumber").val().trim(),
+		emergencyPhoneNumber: $("#ePhoneNumber").val().trim(),
+		profilePicture: $("#profilePicture").val().trim(),
+		currentTeam: $("#currentTeam").val().trim()
+     	}
+     	console.log(JSON.stringify(updatedPlayer));
+     	console.log('This is playerId' + playerId);
+     	var currentURL = window.location.origin;
+
+    $.ajax({ url: currentURL + "/player/update/" + playerId, dataType: 'json', success: function(thePlayer){
+    	console.log("This should be my query from DB " + thePlayer);
+    }})
+
+
+
+     })
+    
+   }	 
 		
 // I believe I have to write all the logic for updating player in database here.
-
+	
 
 	})
 }

@@ -44,28 +44,31 @@
 <br>
 
 		<div class="container">
-			<table>
-				<thead>
-					<tr>
-							<th>Number</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Pitch Position</th>
-							<th>Date of Birth</th>
-							<th>Address</th>
-							<th>Email</th>
-							<th>Phone Number</th>
-							<th>Emergency Phone Number</th>
-							<th>Current Team</th>
-							<th>Edit</th>
-					</tr>
-				</thead>
-				<tbody>
-					<!-- <tr>
-						This will contain the new tr appended by the script
-					</tr> -->
-				</tbody>
-			</table>
+			<div class="panel panel-default">
+				<div class="panel-heading"></div>
+				<table class="table">
+					<thead>
+						<tr>
+								<th>#</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Pitch Position</th>
+								<th>Date of Birth</th>
+								<th>Address</th>
+								<th>Email</th>
+								<th>Phone Number</th>
+								<th>Emergency Phone Number</th>
+								<th>Current Team</th>
+								<th>Edit</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- <tr>
+							This will contain the new tr appended by the script
+						</tr> -->
+					</tbody>
+				</table>
+			</div>
 
 			<br>
 			<br>
@@ -126,7 +129,7 @@
 						<label for="namePlayer">Date of Birth</label>
 					</dt>
 					<dd>
-						<input class="form-control" id="dob" name="" size="30" type="text" value="">
+						<input class="form-control" id="updateDOB" name="" size="30" type="text" value="">
 					</dd>
 				</div>
 			</dl>
@@ -201,7 +204,7 @@
 		<br>
 
 		<div class="text-right">
-			<button type="submit" class="btn btn-primary btn-md" id="addPlayer">
+			<button type="submit" class="btn btn-primary btn-md" id="updateActualPlayer">
 				<span class="glyphicon glyphicon-fire"></span> Update Player
 			</button>
 		</div>
