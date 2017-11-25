@@ -76,7 +76,7 @@ function hideUpdateForm(){
 function findId(callback){
 	$(".userId").on('click', function(callback){
 		var playerId = this.id;
-		console.log("This is playerId " + playerId);
+		//console.log("This is playerId " + playerId);
 		$("table tbody").empty();
 		showUpdateForm();
 		findByUserId(playerId);
@@ -102,7 +102,7 @@ function findByUserId(playerId){
 		console.log("Your querie failed ", status, err);
 	}, complete: function(playerQueried){
      // Handle the complete event
-     console.log(JSON.stringify(playerQueried));
+     //console.log(JSON.stringify(playerQueried));
 
      $('#updateActualPlayer').on('click', function(){
      	var updatedPlayer = {
@@ -117,13 +117,17 @@ function findByUserId(playerId){
 		profilePicture: $("#profilePicture").val().trim(),
 		currentTeam: $("#currentTeam").val().trim()
      	}
-     	console.log(JSON.stringify(updatedPlayer));
-     	console.log('This is playerId' + playerId);
+     	//console.log(JSON.stringify(updatedPlayer));
+     	//console.log('This is playerId ' + playerId);
      	var currentURL = window.location.origin;
 
-    $.ajax({ url: currentURL + "/player/update/" + playerId, dataType: 'json', success: function(thePlayer){
-    	console.log("This should be my query from DB " + thePlayer);
-    }})
+    $.ajax({ 
+    	url: currentURL + "/player/update/" + playerId,
+    	method: 'PUT',
+    	data: updatedPlayer,
+    }).done(function(response){
+    	console.log('Succeded!');
+    })
 
 
 

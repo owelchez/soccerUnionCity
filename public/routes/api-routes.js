@@ -54,17 +54,37 @@ router.get('/findById/:id?', function(req, res){
 	}
 });
 
-router.put('/update/playerById', function(req, res){
+router.put('/player/update/:id?', function(req, res){
 	var updatedPlayer = req.body;
-	console.log(updatedPlayer);
+	var playerId = req.params.id;
+	if(playerId) {
+		Player.findOne({
+			where: {
+				id: playerId
+			}
+		}).then(function(obj){
+			if(obj) {
+				obj.updateAttributes({
+					firstName: updatedPlayer.firstName,
+					lastName: updatedPlayer.lastName,
+					pitchPosition: updatedPlayer.pitchPosition,
+					dob: updatedPlayer.dob,
+					address: updatedPlayer.address,
+					email: updatedPlayer.email,
+					phoneNumber: updatedPlayer.phoneNumber,
+					emergencyPhoneNumber: updatedPlayer.emergencyPhoneNumber,
+					profilePicture: updatedPlayer.profilePicture,
+					currentTeam: updatedPlayer.currentTeam
+				})
+			}
+		})
+	}
 });
 
 router.post('/create/player', function(req, res){
 		var player = req.body;
-		console.log(player);
 
 		var routeName = player.firstName.replace(/\s+/g, '').toLowerCase();
-		var routeName = player.lastName.replace(/\s+/g, '').toLowerCase();
 
 		Player.create({
 			routeName: routeName,
@@ -79,6 +99,7 @@ router.post('/create/player', function(req, res){
 			profilePicture: player.profilePicture,
 			currentTeam: player.currentTeam
 		});
+		
 })
 
 router.post('/book/:id/update', function(req, res){

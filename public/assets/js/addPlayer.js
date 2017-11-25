@@ -1,4 +1,5 @@
-$('#addPlayer').on("click", function(){
+$("form").on('submit', function(e){
+
 
 	var newPlayer = 
 	{
@@ -14,18 +15,16 @@ $('#addPlayer').on("click", function(){
 		currentTeam: $("#currentTeam").val().trim()
 	};
 
-	 console.log("This is player " + newPlayer);
-	 
 	var currentURL = window.location.origin;
-
 	 
 	$.post( currentURL + "/create/player", newPlayer)
 		 
 		.done(function(data){
 			 
-			console.log("Player created!");
+			console.log("This is data from POST " + data);
 			 
 		})
+		
 	 
 	$("#firstName").val("");
 	$("#lastName").val("");
