@@ -26,8 +26,9 @@ function renderTableData(callback){
 							'<td><span>' + data[index].email + '</span></td>' + 
 							'<td><span>' + data[index].phoneNumber + '</span></td>' + 
 							'<td><span>' + data[index].emergencyPhoneNumber + '</span></td>' + 
-							'<td><span>' + data[index].currentTeam + '</span>' + 
-							'<td><span class="userId" id="' + data[index].id + '"><a href="#">Edit</span></span></td>' +  
+							'<td><span>' + data[index].currentTeam + '</span></td>' + 
+							'<td><span class="userId" id="' + data[index].id + '"><a href="#">Edit</span></td>' +  
+							'<td><span class="userId" id="' + data[index].id + '"><a href="#">Delete</span></td>' + 
 							'</td>');
 
 					$("table tbody").append(row);
@@ -86,68 +87,58 @@ function findId(callback){
 function findByUserId(playerId){
 	var playerQueried = {};
 	var currentURL = window.location.origin;
-	$.ajax({ url:currentURL + "/findById/" + playerId, dataType: 'json', success: function(response){
-		$("#playerFirstName").val(capitalizeFirstLetter(response.firstName));
-		$("#playerLastName").val(capitalizeFirstLetter(response.lastName));
-		$("#playerPosition").val(capitalizeFirstLetter(response.pitchPosition));
-		$("#updateDOB").val(response.dob);
-		$("#address").val(response.address);
-		$("#emailAddress").val(response.email);
-		$("#phoneNumber").val(response.phoneNumber);
-		$("#ePhoneNumber").val(response.emergencyPhoneNumber);
-		$("#profilePicture").val(response.profilePicture);
-		$("#currentTeam").val(capitalizeFirstLetter(response.currentTeam));
-	}, 
-	error: function(req, status, err){
-		console.log("Your querie failed ", status, err);
-	}, complete: function(playerQueried){
-     // Handle the complete event
-     //console.log(JSON.stringify(playerQueried));
+	$.ajax({ 
+		url:currentURL + "/findById/" + playerId, 
+		dataType: 'json', 
+		success: function(response){
+			$("#playerFirstName").val(capitalizeFirstLetter(response.firstName));
+			$("#playerLastName").val(capitalizeFirstLetter(response.lastName));
+			$("#playerPosition").val(capitalizeFirstLetter(response.pitchPosition));
+			$("#updateDOB").val(response.dob);
+			$("#address").val(response.address);
+			$("#emailAddress").val(response.email);
+			$("#phoneNumber").val(response.phoneNumber);
+			$("#ePhoneNumber").val(response.emergencyPhoneNumber);
+			$("#profilePicture").val(response.profilePicture);
+			$("#currentTeam").val(capitalizeFirstLetter(response.currentTeam));
+		}, 
+		error: function(req, status, err){
+			console.log("Your querie failed ", status, err);
+		}, 
+		complete: function(playerQueried){
+	     // Handle the complete event
+	     //console.log(JSON.stringify(playerQueried));
 
-     $('#updateActualPlayer').on('click', function(){
-     	var updatedPlayer = {
-     	firstName: $("#playerFirstName").val().trim(),
-		lastName: $("#playerLastName").val().trim(), 
-		pitchPosition: $("#playerPosition").val().trim(),
-		dob: $("#updateDOB").val().trim(),
-		address: $("#address").val().trim(),
-		email: $("#emailAddress").val().trim(),
-		phoneNumber: $("#phoneNumber").val().trim(),
-		emergencyPhoneNumber: $("#ePhoneNumber").val().trim(),
-		profilePicture: $("#profilePicture").val().trim(),
-		currentTeam: $("#currentTeam").val().trim()
-     	}
-     	//console.log(JSON.stringify(updatedPlayer));
-     	//console.log('This is playerId ' + playerId);
-     	var currentURL = window.location.origin;
+			$('#updateActualPlayer').on('click', function(){
+				var updatedPlayer = {
+			 	firstName: $("#playerFirstName").val().trim(),
+				lastName: $("#playerLastName").val().trim(), 
+				pitchPosition: $("#playerPosition").val().trim(),
+				dob: $("#updateDOB").val().trim(),
+				address: $("#address").val().trim(),
+				email: $("#emailAddress").val().trim(),
+				phoneNumber: $("#phoneNumber").val().trim(),
+				emergencyPhoneNumber: $("#ePhoneNumber").val().trim(),
+				profilePicture: $("#profilePicture").val().trim(),
+				currentTeam: $("#currentTeam").val().trim()
+				}
+				//console.log(JSON.stringify(updatedPlayer));
+				//console.log('This is playerId ' + playerId);
+				var currentURL = window.location.origin;
 
-    $.ajax({ 
-    	url: currentURL + "/player/update/" + playerId,
-    	method: 'PUT',
-    	data: updatedPlayer,
-    }).done(function(response){
-    	console.log('Succeded!');
-    })
-
-
-
-     })
-    
-   }	 
-		
-// I believe I have to write all the logic for updating player in database here.
-	
-
+			    $.ajax({ 
+			    	url: currentURL + "/player/update/" + playerId,
+			    	method: 'PUT',
+			    	data: updatedPlayer,
+			    }).done(function(req, res){
+			    	console.log('Succeded!');
+			    	location.reload();
+			    })
+			})
+	   	}	 
 	})
-}
-
-function fillUpdateForm(playerObject){
-	$("#playerFirstName").val = playerObject.firstName;
 }
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-
-

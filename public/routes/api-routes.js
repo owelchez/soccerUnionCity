@@ -75,6 +75,8 @@ router.put('/player/update/:id?', function(req, res){
 					emergencyPhoneNumber: updatedPlayer.emergencyPhoneNumber,
 					profilePicture: updatedPlayer.profilePicture,
 					currentTeam: updatedPlayer.currentTeam
+				}).then(function(){
+					res.redirect(303, '/findbyname');
 				})
 			}
 		})
