@@ -54,6 +54,28 @@ router.get('/findById/:id?', function(req, res){
 	}
 });
 
+router.delete('/player/delete/:id?', function(req, res){
+	var deletePlayer = req.params.id;
+	if(deletePlayer) {
+		Player.findOne({
+			where: {
+				id: deletePlayer
+			}
+		}).then(function(obj){
+			console.log('This is obj ' + obj);
+			if(obj) {
+				obj.destroy({
+    				where: {
+        				id: deletePlayer
+    				}
+				}).then(function(){
+					res.redirect(303, '/findbyname');
+				})
+			}
+		})
+	}
+});
+
 router.put('/player/update/:id?', function(req, res){
 	var updatedPlayer = req.body;
 	var playerId = req.params.id;
