@@ -28,13 +28,14 @@ function renderTableData(callback){
 							'<td><span>' + data[index].emergencyPhoneNumber + '</span></td>' + 
 							'<td><span>' + data[index].currentTeam + '</span></td>' + 
 							'<td><span class="userId" id="' + data[index].id + '"><a href="#">Edit</span></td>' +  
-							'<td><span class="userId" id="' + data[index].id + '"><a href="#">Delete</span></td>' + 
+							'<td><span class="deleteByUserId" id="' + data[index].id + '"><a href="#">Delete</span></td>' + 
 							'</td>');
 
 					$("table tbody").append(row);
 				}
 // After findId I will reference the id clicked on and querie that specific
 // entry id in the database to fill in all the information in the update form.
+				deleteById();
 				findId();
 
 			}).fail(function() {
@@ -81,6 +82,22 @@ function findId(callback){
 		$("table tbody").empty();
 		showUpdateForm();
 		findByUserId(playerId);
+	})
+}
+
+function deleteById(){
+	$(".deleteByUserId").on('click', function(){
+		var playerId = this.id;
+		//console.log('This is my ID to be deleted ' + playerId);
+		var currentURL = window.location.origin;
+		$.ajax({
+			url:currentURL + "/player/delete/" + playerId,
+			type: "DELETE",
+			success: function(result){
+				//console.log("This is result " + result);
+				location.reload();
+			}
+		})
 	})
 }
 
