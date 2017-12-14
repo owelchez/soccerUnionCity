@@ -128,16 +128,17 @@ function findByUserId(playerId){
 
 			$('#updateActualPlayer').on('click', function(){
 				var updatedPlayer = {
-			 	firstName: $("#playerFirstName").val().trim(),
-				lastName: $("#playerLastName").val().trim(), 
-				pitchPosition: $("#playerPosition").val().trim(),
-				dob: $("#updateDOB").val().trim(),
-				address: $("#address").val().trim(),
-				email: $("#emailAddress").val().trim(),
-				phoneNumber: $("#phoneNumber").val().trim(),
-				emergencyPhoneNumber: $("#ePhoneNumber").val().trim(),
-				profilePicture: $("#profilePicture").val().trim(),
-				currentTeam: $("#currentTeam").val().trim()
+					routeName: $("#playerFirstName").val().trim(),
+				 	firstName: $("#playerFirstName").val().trim(),
+					lastName: $("#playerLastName").val().trim(), 
+					pitchPosition: $("#playerPosition").val().trim(),
+					dob: $("#updateDOB").val().trim(),
+					address: $("#address").val().trim(),
+					email: $("#emailAddress").val().trim(),
+					phoneNumber: $("#phoneNumber").val().trim(),
+					emergencyPhoneNumber: $("#ePhoneNumber").val().trim(),
+					profilePicture: $("#profilePicture").val().trim(),
+					currentTeam: $("#currentTeam").val().trim()
 				}
 				//console.log(JSON.stringify(updatedPlayer));
 				//console.log('This is playerId ' + playerId);

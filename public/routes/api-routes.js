@@ -86,7 +86,11 @@ router.put('/player/update/:id?', function(req, res){
 			}
 		}).then(function(obj){
 			if(obj) {
+
+				var routeName = updatedPlayer.firstName.replace(/\s+/g, '').toLowerCase();
+
 				obj.updateAttributes({
+					routeName: routeName,
 					firstName: updatedPlayer.firstName,
 					lastName: updatedPlayer.lastName,
 					pitchPosition: updatedPlayer.pitchPosition,
