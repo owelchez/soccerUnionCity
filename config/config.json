@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "socceruser_db",
-    "host": "127.0.0.1",
+    "username": "ixq11fp37zpgqo4m",
+    "password": "apjehuy04ti23dh2",
+    "database": "mwykfk0jq7iuwfn1",
+    "host": "y2w3wxldca8enczv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
+    "username": "ixq11fp37zpgqo4m",
+    "password": "apjehuy04ti23dh2",
     "database": "database_test",
-    "host": "127.0.0.1",
+    "host": "y2w3wxldca8enczv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "ixq11fp37zpgqo4m",
+    "password": "apjehuy04ti23dh2",
+    "database": "mwykfk0jq7iuwfn1",
+    "host": "y2w3wxldca8enczv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
