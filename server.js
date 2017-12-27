@@ -25,6 +25,7 @@ app.use(methodOverride('_method'));
 
 //Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/package'));
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist/css/'));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 
