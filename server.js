@@ -29,7 +29,6 @@ var Todo = connection.define('todo', {
 	}
 });
 
-
 // This will synchronize Admin and Player tables
 var Admin = require('./models')["Admin"];
 Admin.sync();
