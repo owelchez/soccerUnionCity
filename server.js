@@ -6,6 +6,30 @@ var methodOverride = require('method-override');
 var sequelize = require('sequelize');
 var models = require('./models');
 
+// Database setup
+var Sequelize = require('sequelize');
+var connection;
+
+if(process.env.JAWSDB_URL) {
+	connection = new Sequelize(process.env.JAWSDB_URL);
+} else {
+	connection = new Sequelize('todo_db', 'root', 'password', {
+		host: 'localhost',
+		dialect: 'mysql',
+		port: '3306'
+	})
+}
+
+// Create the model and define the schema using Sequelize
+var Todo = connection.define('todo', {
+	description: {
+		type: Sequelize.STRING,
+		field: 'description',
+		allowNull: false
+	}
+});
+
+
 // This will synchronize Admin and Player tables
 var Admin = require('./models')["Admin"];
 Admin.sync();
