@@ -21,13 +21,13 @@ if(process.env.JAWSDB_URL) {
 }
 
 // Create the model and define the schema using Sequelize
-var Todo = connection.define('todo', {
+/*var Todo = connection.define('todo', {
 	description: {
 		type: Sequelize.STRING,
 		field: 'description',
 		allowNull: false
 	}
-});
+});*/
 
 // This will synchronize Admin and Player tables
 var Admin = require('./models')["Admin"];
