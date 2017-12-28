@@ -35,7 +35,7 @@ Admin.sync();
 var Player = require('./models')["Player"];
 Player.sync();
 
-var PORT = 3000;
+
 var app = express();
 
 app.use(bodyParser.json());
@@ -63,5 +63,7 @@ app.use('/create/player', routes);
 app.use('/update/player', routes);
 app.use('*', routes);
 
-app.listen(PORT);
-console.log('Hackin\' n Slacking on PORT ' + PORT);
+var port = process.env.PORT || 3000;
+
+app.listen(port);
+console.log('Hackin\' n Slacking on PORT ' + port);
