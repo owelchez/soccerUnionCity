@@ -1,5 +1,5 @@
 body { 
-  background: url("../../soccerBg.JPG") no-repeat center center fixed; 
+  background-image: url("/../pictures/soccerBg.JPG") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -22,7 +22,6 @@ li a {
 }
 
 li {
-
 	height: 28px;
 	float: left;
 	display: inline;
