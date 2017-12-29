@@ -20,21 +20,13 @@ if(process.env.JAWSDB_URL) {
 	})
 }
 
-// Create the model and define the schema using Sequelize
-/*var Todo = connection.define('todo', {
-	description: {
-		type: Sequelize.STRING,
-		field: 'description',
-		allowNull: false
-	}
-});*/
-
 // This will synchronize Admin and Player tables
 var Admin = require('./models')["Admin"];
 Admin.sync();
 var Player = require('./models')["Player"];
 Player.sync();
 
+var port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -62,8 +54,6 @@ app.use('/find/:players?', routes);
 app.use('/create/player', routes);
 app.use('/update/player', routes);
 app.use('*', routes);
-
-var port = process.env.PORT || 3000;
 
 app.listen(port);
 console.log('Hackin\' n Slacking on PORT ' + port);
