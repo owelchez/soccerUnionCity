@@ -3,3 +3,4 @@ public/.DS_Store
 public/assets/.DS_Store
 .DS_Store
 config/config.json
+npm-debug.log
