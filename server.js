@@ -55,5 +55,6 @@ app.use('/create/player', routes);
 app.use('/update/player', routes);
 app.use('*', routes);
 
-app.listen(port);
-console.log('Hackin\' n Slacking on PORT ' + port);
+app.listen(port, function(){
+	console.log('Hackin\' n Slacking on PORT ' + port);
+});
