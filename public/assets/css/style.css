@@ -1,5 +1,5 @@
 body { 
-  background-image: url("/public/assets/pictures/soccerBg.JPG") no-repeat center center fixed; 
+  background: url("./../pictures/soccerBg.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
