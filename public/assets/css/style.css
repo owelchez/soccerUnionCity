@@ -222,9 +222,10 @@ table, th, td {
 }
 
 #rowHeight {
+	width: 50%;
 	height: 50px;
 	margin-top: 10px;
-	margin-bottom: 30px;
+	margin-bottom: 80px;
 	margin-left: 50px;
 	animation-duration: 10s;
 }
