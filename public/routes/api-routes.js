@@ -130,9 +130,19 @@ router.post('/create/player', function(req, res){
 		
 })
 
-router.post('/book/:id/update', function(req, res){
-	
-})
+router.get('/findByEmail/:email?', function(req, res){
+	console.log('This is req.params.email ' + req.params.email);
+	var adminEmail = req.params.email;
+		Admin.findAll({
+			where: {
+				email: adminEmail
+			}
+		})
+		.then(function(obj) {
+			console.log('This is obj ' + obj);
+			return res.json(obj);
+		})
+});
 
 router.get('*', function (req, res) {
 	res.status(404).sendFile(path.join(__dirname, '../404NotFound.html'));
