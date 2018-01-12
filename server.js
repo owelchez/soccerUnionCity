@@ -1,10 +1,15 @@
-var express = require('express');
-var path = require('path');
+var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var express = require('express');
+var flash = require('req-flash');
+var favicon = require('serve-favicon');
+var path = require('path');
 var mysql = require('mysql');
 var methodOverride = require('method-override');
 var sequelize = require('sequelize');
 var models = require('./models');
+var app = express();
 
 // Database setup
 var Sequelize = require('sequelize');
@@ -28,12 +33,17 @@ Player.sync();
 
 var port = process.env.PORT || 3000;
 
-var app = express();
+
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
+app.use(cookieParser());
+app.use(session({ secret: '123' }));
+app.use(flash());
+
 
 // This will override a POST request from my form to update players (Once I get it done ;p)
 app.use(methodOverride('_method'));

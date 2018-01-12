@@ -1,27 +1,28 @@
 var express = require('express');
-var router = express.Router();
 var path = require('path');
 var app = express();
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var Player = require('../../models/')["Player"];
 var Admin = require('../../models/')["Admin"];
 
-router.get('/', function(req, res){
+app.get('/', function(req, res){
 		res.redirect('/');
 });
 
-router.get('/login', function (req, res) {
+app.get('/login', function (req, res) {
   res.sendFile(path.join(__dirname, '../login.html'));
 });
 
-router.get('/findbyname', function (req, res) {
+app.get('/findbyname', function (req, res) {
   res.sendFile(path.join(__dirname, '../findByName.html'));
 });
 
-router.get('/addPlayer', function (req, res) {
+app.get('/addPlayer', function (req, res) {
   res.sendFile(path.join(__dirname, '../addPlayer.html'));
 });
 
-router.get('/find/:players?', function(req, res){
+app.get('/find/:players?', function(req, res){
 	if(req.params.players) {
 		// FindAll to find any possible repeated names
 		Player.findAll({
@@ -43,7 +44,7 @@ router.get('/find/:players?', function(req, res){
 	}
 });
 
-router.get('/findById/:id?', function(req, res){
+app.get('/findById/:id?', function(req, res){
 	if(req.params.id) {
 		Player.findById(req.params.id).then(player => {
 			return res.json(player);
@@ -54,7 +55,7 @@ router.get('/findById/:id?', function(req, res){
 	}
 });
 
-router.delete('/player/delete/:id?', function(req, res){
+app.delete('/player/delete/:id?', function(req, res){
 	var deletePlayer = req.params.id;
 	if(deletePlayer) {
 		Player.findOne({
@@ -76,7 +77,7 @@ router.delete('/player/delete/:id?', function(req, res){
 	}
 });
 
-router.put('/player/update/:id?', function(req, res){
+app.put('/player/update/:id?', function(req, res){
 	var updatedPlayer = req.body;
 	var playerId = req.params.id;
 	if(playerId) {
@@ -109,7 +110,7 @@ router.put('/player/update/:id?', function(req, res){
 	}
 });
 
-router.post('/create/player', function(req, res){
+app.post('/create/player', function(req, res){
 		var player = req.body;
 
 		var routeName = player.firstName.replace(/\s+/g, '').toLowerCase();
@@ -130,7 +131,7 @@ router.post('/create/player', function(req, res){
 		
 })
 
-router.get('/findByEmail/:email?', function(req, res){
+app.get('/findByEmail/:email?', function(req, res){
 	console.log('This is req.params.email ' + req.params.email);
 	var adminEmail = req.params.email;
 		Admin.findAll({
@@ -144,8 +145,32 @@ router.get('/findByEmail/:email?', function(req, res){
 		})
 });
 
-router.get('*', function (req, res) {
+app.get('*', function (req, res) {
 	res.status(404).sendFile(path.join(__dirname, '../404NotFound.html'));
 });
 
-module.exports = router;
+app.use(new LocalStrategy({
+  usernameField: 'email',
+    passwordField: 'password'
+},
+  function(username, password, done) {
+    Admin.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
+
+app.post('/login',
+  		passport.authenticate('local', { successRedirect: '/findbyname',
+                                  		failureRedirect: '/login',
+                                  		failureFlash: true })
+);
+
+module.exports = app;
