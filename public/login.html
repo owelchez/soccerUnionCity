@@ -32,20 +32,21 @@
 	<div class="container">
 
 <div id="loginBox">
-	<div class="form-element">
-		<label for="email">Email</label>
-		<input type="text" name="email" id="email" placeholder="yourname@email.com">
-	</div>
+	<form action="/login" method="post">
+		<div class="form-element">
+			<label>Username:</label>
+			<input type="text" name="username" placeholder="yourname@email.com"/>
+		</div>
 
-	<div class="form-element">
-		<label for="password">Password</label>
-		<input type="password" name="password" id="password">
-	</div>
+		<div class="form-element">
+			<label>Password:</label>
+			<input type="password" name="password"/>
+		</div>
 
-	<div class="form-element">
-		<input type="submit" id="submitButton" value="Sign In">
-	</div>
-
+		<div class="form-element">
+			<input type="submit" value="Log In">
+		</div>
+	</form>
 </div>	
 		
 	</div>
