@@ -149,28 +149,34 @@ app.get('*', function (req, res) {
 	res.status(404).sendFile(path.join(__dirname, '../404NotFound.html'));
 });
 
-app.use(new LocalStrategy({
-  usernameField: 'email',
-    passwordField: 'password'
-},
-  function(username, password, done) {
-    Admin.findOne({ username: username }, function(err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
-  }
-));
+app.post('/login', function(req, res) {
+	var userLogin = req.body;
+	var username = userLogin.username;
+	var userPassword = userLogin.password;
+	console.log('This is userLogin ' + username);
+	console.log('This is userPassword ' + userPassword);
 
-app.post('/login',
-  		passport.authenticate('local', { successRedirect: '/findbyname',
-                                  		failureRedirect: '/login',
-                                  		failureFlash: true })
-);
+	if(userLogin){
+		Admin.findOne({
+			where: {
+				email: username
+			}
+		})
+		.then(function(obj) {
+			//res.json('This is admin found! ' + obj.password);
+			console.log('This is obj ' + obj.email);
+			console.log('This is obj ' + obj.password);
+			if(userPassword == obj.password) {
+				res.redirect('/findbyname');
+				//res.json('You have successfully signed in!');
+			} else {
+				res.json('You got a wrong password!!');
+			}
+		})
+	} else {
+		res.json('This user doesn\'t exist! ');
+	}
+
+});
 
 module.exports = app;

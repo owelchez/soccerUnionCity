@@ -1,4 +1,3 @@
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var express = require('express');
@@ -40,10 +39,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
-app.use(cookieParser());
-app.use(session({ secret: '123' }));
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  //cookie: { secure: true }
+}))
 app.use(flash());
-
 
 // This will override a POST request from my form to update players (Once I get it done ;p)
 app.use(methodOverride('_method'));
